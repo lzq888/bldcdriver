@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Sun 19 Apr 2015 17:02:55 MST
+EESchema Schematic File Version 2  date Sun 19 Apr 2015 17:21:43 MST
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -33,10 +33,10 @@ LIBS:bldc-cache
 LIBS:bldc-cache
 EELAYER 25  0
 EELAYER END
-$Descr A4 11700 8267
+$Descr User 11000 8500
 encoding utf-8
 Sheet 3 4
-Title ""
+Title "Microcontroller and Support"
 Date "19 apr 2015"
 Rev ""
 Comp ""
