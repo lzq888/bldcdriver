@@ -1,0 +1,12 @@
+EESchema-DOCLIB  Version 2.0  Date: Sun 19 Apr 2015 12:51:57 MST
+#
+$CMP ATMEGA64C1
+F datasheets/atmega64c1.pdf
+$ENDCMP
+#
+$CMP NTD5806N
+D NFET
+F datasheets/NTD5806N.PDF
+$ENDCMP
+#
+#End Doc Library

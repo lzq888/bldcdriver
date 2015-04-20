@@ -9,7 +9,6 @@
 *.pch
 
 # Libraries
-*.lib
 *.a
 *.la
 *.lo
@@ -30,3 +29,6 @@
 
 # Debug files
 *.dSYM/
+
+# KiCAD files
+*.bak
