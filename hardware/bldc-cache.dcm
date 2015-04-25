@@ -1,6 +1,10 @@
-EESchema-DOCLIB  Version 2.0  Date: Sun 19 Apr 2015 13:07:42 MST
+EESchema-DOCLIB  Version 2.0  Date: Sat 25 Apr 2015 15:08:59 MST
 #
 $CMP ATMEGA64C1
+F datasheets/atmega64c1.pdf
+$ENDCMP
+#
+$CMP ATMEGA64M1
 F datasheets/atmega64c1.pdf
 $ENDCMP
 #
