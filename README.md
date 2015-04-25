@@ -11,6 +11,6 @@ Constant Output Current: 20A
 
 Motor Type: Brushless (Optional Sensors)
 
-PWM Frequency: 15625Hz
+PWM Frequency: 16kHz
 
 ## Software
