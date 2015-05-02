@@ -1,0 +1,789 @@
+# EESchema Netlist Version 1.1 created  Fri 01 May 2015 21:57:16 MST
+(
+ ( /553C2309 0805  C2 1uF {Lib=C}
+  (    1 +5V )
+  (    2 GND )
+ )
+ ( /553C1EAB 0805  C1 1uF {Lib=C}
+  (    1 +BATT )
+  (    2 GND )
+ )
+ ( /55340D36 $noname  J3 W_OUT {Lib=CONN_1}
+  (    1 /Signal_Conditioning/W_OUT )
+ )
+ ( /55340D33 $noname  J2 V_OUT {Lib=CONN_1}
+  (    1 /Signal_Conditioning/V_OUT )
+ )
+ ( /55340D0A $noname  J1 U_OUT {Lib=CONN_1}
+  (    1 /3_Phase_Inverter/U_OUT )
+ )
+ ( /5533EEE8 TO-92  U1 7805 {Lib=7805}
+  (  GND GND )
+  (   VI +BATT )
+  (   VO +5V )
+ )
+ ( /5533F799/553C2909 0805  R4 10.2K {Lib=R}
+  (    1 N-000054 )
+  (    2 /Microcontroller/CURR_SENSE )
+ )
+ ( /5533F799/5533F9AB 0805  C4 150pF {Lib=C}
+  (    1 N-000054 )
+  (    2 /Microcontroller/CURR_SENSE )
+ )
+ ( /5533F799/5533F9AA 0805  R3 100 {Lib=R}
+  (    1 GND )
+  (    2 N-000054 )
+ )
+ ( /5533F799/553C2C52 SOIC-14  U2 LM324 {Lib=LM324}
+  (    1 N-000052 )
+  (    2 N-000052 )
+  (    3 /3_Phase_Inverter/U_OUT )
+  (    4 +BATT )
+  (    5 /Signal_Conditioning/V_OUT )
+  (    6 N-000051 )
+  (    7 N-000051 )
+  (    8 N-000053 )
+  (    9 N-000053 )
+  (   10 /Signal_Conditioning/W_OUT )
+  (   11 GND )
+  (   12 /3_Phase_Inverter/CURR_SENSE )
+  (   13 N-000054 )
+  (   14 /Microcontroller/CURR_SENSE )
+ )
+ ( /5533F799/553C29D4 0805  R7 57.6K {Lib=R}
+  (    1 N-000053 )
+  (    2 /Signal_Conditioning/W_BEMF )
+ )
+ ( /5533F799/553C29D1 0805  R5 57.6K {Lib=R}
+  (    1 N-000051 )
+  (    2 /Signal_Conditioning/V_BEMF )
+ )
+ ( /5533F799/553C28F9 0805  R8 10.2K {Lib=R}
+  (    1 GND )
+  (    2 /Signal_Conditioning/W_BEMF )
+ )
+ ( /5533F799/553C28EE 0805  R2 10.2K {Lib=R}
+  (    1 GND )
+  (    2 /Signal_Conditioning/U_BEMF )
+ )
+ ( /5533F799/553C28DE 0805  R6 10.2K {Lib=R}
+  (    1 GND )
+  (    2 /Signal_Conditioning/V_BEMF )
+ )
+ ( /5533F799/553C2434 0805  C7 1000pF {Lib=C}
+  (    1 /Signal_Conditioning/W_BEMF )
+  (    2 GND )
+ )
+ ( /5533F799/553C2432 0805  C5 1000pF {Lib=C}
+  (    1 /Signal_Conditioning/V_BEMF )
+  (    2 GND )
+ )
+ ( /5533F799/553C2377 0805  C6 1uF {Lib=C}
+  (    1 +BATT )
+  (    2 GND )
+ )
+ ( /5533F799/5533F7C7 0805  R1 57.6K {Lib=R}
+  (    1 N-000052 )
+  (    2 /Signal_Conditioning/U_BEMF )
+ )
+ ( /5533F799/5533F7C6 0805  C3 1000pF {Lib=C}
+  (    1 /Signal_Conditioning/U_BEMF )
+  (    2 GND )
+ )
+ ( /5533F41F/554452A4 TQFP32  U3 ATMEGA328-A {Lib=ATMEGA328-A}
+  (    1 /Microcontroller/V_LO )
+  (    2 /3_Phase_Inverter/W_LO )
+  (    3 GND )
+  (    4 +5V )
+  (    5 GND )
+  (    6 +5V )
+  (    7 N-000042 )
+  (    8 N-000044 )
+  (    9 /3_Phase_Inverter/V_HI )
+  (   10 /Microcontroller/U_HI )
+  (   11 ? )
+  (   12 ? )
+  (   13 /3_Phase_Inverter/W_HI )
+  (   14 /Microcontroller/BATT_PWM )
+  (   15 /Microcontroller/MOSI )
+  (   16 /Microcontroller/MISO )
+  (   17 /Microcontroller/SCK )
+  (   18 +5VA )
+  (   19 ? )
+  (   20 N-000041 )
+  (   21 GND )
+  (   22 ? )
+  (   23 /Signal_Conditioning/U_BEMF )
+  (   24 /Signal_Conditioning/V_BEMF )
+  (   25 /Signal_Conditioning/W_BEMF )
+  (   26 /Microcontroller/CURR_SENSE )
+  (   27 /Microcontroller/BATT_SENSE )
+  (   28 ? )
+  (   29 /Microcontroller/nRESET )
+  (   30 /Microcontroller/UART_RX )
+  (   31 /Microcontroller/UART_TX )
+  (   32 /3_Phase_Inverter/U_LO )
+ )
+ ( /5533F41F/554450A4 0805  C12 18pF {Lib=C}
+  (    1 N-000042 )
+  (    2 GND )
+ )
+ ( /5533F41F/55445018 0805  C13 18pF {Lib=C}
+  (    1 GND )
+  (    2 N-000044 )
+ )
+ ( /5533F41F/55444EB1 HC49  X1 20MHz {Lib=CRYSTAL}
+  (    1 N-000044 )
+  (    2 N-000042 )
+ )
+ ( /5533F41F/553C353B $noname  JP1 JUMPER {Lib=JUMPER}
+  (    1 +5V )
+  (    2 N-000035 )
+ )
+ ( /5533F41F/5533F767 0805  R13 1K {Lib=R}
+  (    1 N-000050 )
+  (    2 /Microcontroller/BATT_PWM )
+ )
+ ( /5533F41F/5533F768 TO-92-3  Q1 2N3904 {Lib=NPN}
+  (    1 GND )
+  (    2 N-000050 )
+  (    3 N-000031 )
+ )
+ ( /5533F41F/553C29EF 0805  R14 57.6K {Lib=R}
+  (    1 +BATT )
+  (    2 /Microcontroller/BATT_SENSE )
+ )
+ ( /5533F41F/553C28C3 0805  R11 10.2K {Lib=R}
+  (    1 /Microcontroller/MOSI )
+  (    2 N-000045 )
+ )
+ ( /5533F41F/553C28BE 0805  R10 10.2K {Lib=R}
+  (    1 N-000048 )
+  (    2 /Microcontroller/SCK )
+ )
+ ( /5533F41F/553C28B9 0805  R9 10.2K {Lib=R}
+  (    1 N-000034 )
+  (    2 /Microcontroller/MISO )
+ )
+ ( /5533F41F/553C28A7 0805  R15 10.2K {Lib=R}
+  (    1 N-000031 )
+  (    2 /Microcontroller/BATT_SENSE )
+ )
+ ( /5533F41F/553C2455 0805  C14 1000pF {Lib=C}
+  (    1 /Microcontroller/BATT_SENSE )
+  (    2 N-000031 )
+ )
+ ( /5533F41F/553C244A 0805  C11 1000pF {Lib=C}
+  (    1 /Microcontroller/nRESET )
+  (    2 GND )
+ )
+ ( /5533F41F/553C232C 0805  C10 1uF {Lib=C}
+  (    1 N-000041 )
+  (    2 GND )
+ )
+ ( /5533F41F/553C2329 0805  C8 1uF {Lib=C}
+  (    1 +5VA )
+  (    2 GND )
+ )
+ ( /5533F41F/553C2323 0805  C9 1uF {Lib=C}
+  (    1 +5V )
+  (    2 GND )
+ )
+ ( /5533F41F/553400A6 3x1_0.1"  J5 SERIAL_OUT {Lib=CONN_3}
+  (    1 /Microcontroller/UART_TX )
+  (    2 /Microcontroller/UART_RX )
+  (    3 GND )
+ )
+ ( /5533F41F/5533F784 3x2_0.1"  J4 ICSP {Lib=AVR-ISP-6}
+  (    1 N-000034 )
+  (    2 N-000035 )
+  (    3 N-000048 )
+  (    4 N-000045 )
+  (    5 /Microcontroller/nRESET )
+  (    6 GND )
+ )
+ ( /5533F41F/5533F45C 0805  L1 1k_@_100MHz {Lib=INDUCTOR}
+  (    1 +5V )
+  (    2 +5VA )
+ )
+ ( /5533F41F/5533F453 0805  R12 10.2K {Lib=R}
+  (    1 /Microcontroller/nRESET )
+  (    2 +5V )
+ )
+ ( /5533EFF3/553C27F8 DPAK  Q7 NTD5806N {Lib=NTD5806N}
+  (    1 N-000027 )
+  (    2 /Signal_Conditioning/W_OUT )
+  (    3 /3_Phase_Inverter/CURR_SENSE )
+ )
+ ( /5533EFF3/553C27F5 DPAK  Q6 NTD5806N {Lib=NTD5806N}
+  (    1 N-000024 )
+  (    2 +BATT )
+  (    3 /Signal_Conditioning/W_OUT )
+ )
+ ( /5533EFF3/553C27F4 DPAK  Q5 NTD5806N {Lib=NTD5806N}
+  (    1 N-000026 )
+  (    2 /Signal_Conditioning/V_OUT )
+  (    3 /3_Phase_Inverter/CURR_SENSE )
+ )
+ ( /5533EFF3/553C27F1 DPAK  Q4 NTD5806N {Lib=NTD5806N}
+  (    1 N-000025 )
+  (    2 +BATT )
+  (    3 /Signal_Conditioning/V_OUT )
+ )
+ ( /5533EFF3/553C27EE DPAK  Q3 NTD5806N {Lib=NTD5806N}
+  (    1 N-000028 )
+  (    2 /3_Phase_Inverter/U_OUT )
+  (    3 /3_Phase_Inverter/CURR_SENSE )
+ )
+ ( /5533EFF3/553C253E DO-41  D3 1N4936 {Lib=DIODE}
+  (    1 +BATT )
+  (    2 N-000023 )
+ )
+ ( /5533EFF3/553C253C DO-41  D2 1N4936 {Lib=DIODE}
+  (    1 +BATT )
+  (    2 N-000020 )
+ )
+ ( /5533EFF3/553C2361 0805  C19 1uF {Lib=C}
+  (    1 +BATT )
+  (    2 GND )
+ )
+ ( /5533EFF3/553C235E 0805  C17 1uF {Lib=C}
+  (    1 +BATT )
+  (    2 GND )
+ )
+ ( /5533EFF3/553C235A 0805  C18 1uF {Lib=C}
+  (    1 N-000020 )
+  (    2 /Signal_Conditioning/V_OUT )
+ )
+ ( /5533EFF3/553C2357 0805  C20 1uF {Lib=C}
+  (    1 N-000023 )
+  (    2 /Signal_Conditioning/W_OUT )
+ )
+ ( /5533EFF3/553C234E 0805  C16 1uF {Lib=C}
+  (    1 N-000022 )
+  (    2 /3_Phase_Inverter/U_OUT )
+ )
+ ( /5533EFF3/553C2344 0805  C15 1uF {Lib=C}
+  (    1 +BATT )
+  (    2 GND )
+ )
+ ( /5533EFF3/553C1004 SOIC8  U6 LM5109 {Lib=IRS2301S}
+  (    1 +BATT )
+  (    2 /3_Phase_Inverter/W_HI )
+  (    3 /3_Phase_Inverter/W_LO )
+  (    4 GND )
+  (    5 N-000027 )
+  (    6 /Signal_Conditioning/W_OUT )
+  (    7 N-000024 )
+  (    8 N-000023 )
+ )
+ ( /5533EFF3/553C0FFD SOIC8  U5 LM5109 {Lib=IRS2301S}
+  (    1 +BATT )
+  (    2 /3_Phase_Inverter/V_HI )
+  (    3 /Microcontroller/V_LO )
+  (    4 GND )
+  (    5 N-000026 )
+  (    6 /Signal_Conditioning/V_OUT )
+  (    7 N-000025 )
+  (    8 N-000020 )
+ )
+ ( /5533EFF3/55340B88 DPAK  Q2 NTD5806N {Lib=NTD5806N}
+  (    1 N-000021 )
+  (    2 +BATT )
+  (    3 /3_Phase_Inverter/U_OUT )
+ )
+ ( /5533EFF3/5533F2AE SOIC8  U4 LM5109 {Lib=IRS2301S}
+  (    1 +BATT )
+  (    2 /Microcontroller/U_HI )
+  (    3 /3_Phase_Inverter/U_LO )
+  (    4 GND )
+  (    5 N-000028 )
+  (    6 /3_Phase_Inverter/U_OUT )
+  (    7 N-000021 )
+  (    8 N-000022 )
+ )
+ ( /5533EFF3/5533F2AD DO-41  D1 1N4936 {Lib=DIODE}
+  (    1 +BATT )
+  (    2 N-000022 )
+ )
+ ( /5533EFF3/5533F2A2 2512  R16 0.001 {Lib=R}
+  (    1 /3_Phase_Inverter/CURR_SENSE )
+  (    2 GND )
+ )
+)
+*
+{ Allowed footprints by component:
+$component C2
+ SM*
+ C?
+ C1-1
+$endlist
+$component C1
+ SM*
+ C?
+ C1-1
+$endlist
+$component R4
+ R?
+ SM0603
+ SM0805
+ R?-*
+$endlist
+$component C4
+ SM*
+ C?
+ C1-1
+$endlist
+$component R3
+ R?
+ SM0603
+ SM0805
+ R?-*
+$endlist
+$component R7
+ R?
+ SM0603
+ SM0805
+ R?-*
+$endlist
+$component R5
+ R?
+ SM0603
+ SM0805
+ R?-*
+$endlist
+$component R8
+ R?
+ SM0603
+ SM0805
+ R?-*
+$endlist
+$component R2
+ R?
+ SM0603
+ SM0805
+ R?-*
+$endlist
+$component R6
+ R?
+ SM0603
+ SM0805
+ R?-*
+$endlist
+$component C7
+ SM*
+ C?
+ C1-1
+$endlist
+$component C5
+ SM*
+ C?
+ C1-1
+$endlist
+$component C6
+ SM*
+ C?
+ C1-1
+$endlist
+$component R1
+ R?
+ SM0603
+ SM0805
+ R?-*
+$endlist
+$component C3
+ SM*
+ C?
+ C1-1
+$endlist
+$component U3
+ 28DIP-ELL600
+ 28dip600
+$endlist
+$component C12
+ SM*
+ C?
+ C1-1
+$endlist
+$component C13
+ SM*
+ C?
+ C1-1
+$endlist
+$component R13
+ R?
+ SM0603
+ SM0805
+ R?-*
+$endlist
+$component R14
+ R?
+ SM0603
+ SM0805
+ R?-*
+$endlist
+$component R11
+ R?
+ SM0603
+ SM0805
+ R?-*
+$endlist
+$component R10
+ R?
+ SM0603
+ SM0805
+ R?-*
+$endlist
+$component R9
+ R?
+ SM0603
+ SM0805
+ R?-*
+$endlist
+$component R15
+ R?
+ SM0603
+ SM0805
+ R?-*
+$endlist
+$component C14
+ SM*
+ C?
+ C1-1
+$endlist
+$component C11
+ SM*
+ C?
+ C1-1
+$endlist
+$component C10
+ SM*
+ C?
+ C1-1
+$endlist
+$component C8
+ SM*
+ C?
+ C1-1
+$endlist
+$component C9
+ SM*
+ C?
+ C1-1
+$endlist
+$component R12
+ R?
+ SM0603
+ SM0805
+ R?-*
+$endlist
+$component Q7
+ DPAK
+ IPAK
+$endlist
+$component Q6
+ DPAK
+ IPAK
+$endlist
+$component Q5
+ DPAK
+ IPAK
+$endlist
+$component Q4
+ DPAK
+ IPAK
+$endlist
+$component Q3
+ DPAK
+ IPAK
+$endlist
+$component D3
+ D?
+ S*
+$endlist
+$component D2
+ D?
+ S*
+$endlist
+$component C19
+ SM*
+ C?
+ C1-1
+$endlist
+$component C17
+ SM*
+ C?
+ C1-1
+$endlist
+$component C18
+ SM*
+ C?
+ C1-1
+$endlist
+$component C20
+ SM*
+ C?
+ C1-1
+$endlist
+$component C16
+ SM*
+ C?
+ C1-1
+$endlist
+$component C15
+ SM*
+ C?
+ C1-1
+$endlist
+$component Q2
+ DPAK
+ IPAK
+$endlist
+$component D1
+ D?
+ S*
+$endlist
+$component R16
+ R?
+ SM0603
+ SM0805
+ R?-*
+$endlist
+$endfootprintlist
+}
+{ Pin List by Nets
+Net 1 "/Signal Conditioning/V_BEMF" "V_BEMF"
+ C5 1
+ R6 2
+ U3 24
+ R5 2
+Net 2 "/Signal Conditioning/W_BEMF" "W_BEMF"
+ C7 1
+ U3 25
+ R8 2
+ R7 2
+Net 3 "+BATT" "+BATT"
+ D3 1
+ C15 1
+ D2 1
+ C19 1
+ R14 1
+ C17 1
+ U5 1
+ Q6 2
+ C6 1
+ Q4 2
+ U1 VI
+ Q2 2
+ U4 1
+ D1 1
+ C1 1
+ U6 1
+ U2 4
+Net 4 "+5VA" "+5VA"
+ C8 1
+ U3 18
+ L1 2
+Net 5 "GND" "GND"
+ U4 4
+ C19 2
+ C17 2
+ C15 2
+ U6 4
+ R16 2
+ C13 1
+ C7 2
+ R6 1
+ C5 2
+ R8 1
+ U2 11
+ R3 1
+ C3 2
+ C6 2
+ C12 2
+ U3 3
+ U3 5
+ U3 21
+ C10 2
+ Q1 1
+ J4 6
+ J5 3
+ C11 2
+ C9 2
+ C8 2
+ R2 1
+ U5 4
+ U1 GND
+ C1 2
+ C2 2
+Net 6 "+5V" "+5V"
+ R12 2
+ JP1 1
+ U3 6
+ U3 4
+ L1 1
+ C2 1
+ C9 1
+ U1 VO
+Net 7 "/3 Phase Inverter/CURR_SENSE" "CURR_SENSE"
+ R16 1
+ Q5 3
+ Q3 3
+ Q7 3
+ U2 12
+Net 8 "/Microcontroller/CURR_SENSE" "CURR_SENSE"
+ U2 14
+ C4 2
+ R4 2
+ U3 26
+Net 9 "/Signal Conditioning/U_BEMF" "U_BEMF"
+ C3 1
+ R2 2
+ R1 2
+ U3 23
+Net 11 "/Microcontroller/U_HI" "U_HI"
+ U4 2
+ U3 10
+Net 12 "/3 Phase Inverter/W_HI" "W_HI"
+ U3 13
+ U6 2
+Net 13 "/3 Phase Inverter/W_LO" "W_LO"
+ U6 3
+ U3 2
+Net 14 "/Microcontroller/V_LO" "V_LO"
+ U5 3
+ U3 1
+Net 15 "/3 Phase Inverter/U_LO" "U_LO"
+ U3 32
+ U4 3
+Net 16 "/3 Phase Inverter/V_HI" "V_HI"
+ U5 2
+ U3 9
+Net 17 "/3 Phase Inverter/U_OUT" "U_OUT"
+ U2 3
+ C16 2
+ Q3 2
+ J1 1
+ Q2 3
+ U4 6
+Net 18 "/Signal Conditioning/V_OUT" "V_OUT"
+ Q5 2
+ U5 6
+ Q4 3
+ U2 5
+ J2 1
+ C18 2
+Net 19 "/Signal Conditioning/W_OUT" "W_OUT"
+ C20 2
+ Q6 3
+ J3 1
+ U6 6
+ U2 10
+ Q7 2
+Net 20 "" ""
+ U5 8
+ C18 1
+ D2 2
+Net 21 "" ""
+ U4 7
+ Q2 1
+Net 22 "" ""
+ U4 8
+ D1 2
+ C16 1
+Net 23 "" ""
+ D3 2
+ C20 1
+ U6 8
+Net 24 "" ""
+ Q6 1
+ U6 7
+Net 25 "" ""
+ U5 7
+ Q4 1
+Net 26 "" ""
+ U5 5
+ Q5 1
+Net 27 "" ""
+ Q7 1
+ U6 5
+Net 28 "" ""
+ U4 5
+ Q3 1
+Net 29 "/Microcontroller/BATT_PWM" "BATT_PWM"
+ R13 2
+ U3 14
+Net 30 "/Microcontroller/nRESET" "nRESET"
+ R12 1
+ C11 1
+ J4 5
+ U3 29
+Net 31 "" ""
+ Q1 3
+ R15 1
+ C14 2
+Net 32 "/Microcontroller/SCK" "SCK"
+ U3 17
+ R10 2
+Net 33 "/Microcontroller/MOSI" "MOSI"
+ R11 1
+ U3 15
+Net 34 "" ""
+ J4 1
+ R9 1
+Net 35 "" ""
+ J4 2
+ JP1 2
+Net 36 "/Microcontroller/MISO" "MISO"
+ U3 16
+ R9 2
+Net 39 "/Microcontroller/BATT_SENSE" "BATT_SENSE"
+ U3 27
+ C14 1
+ R15 2
+ R14 2
+Net 41 "" ""
+ C10 1
+ U3 20
+Net 42 "" ""
+ U3 7
+ X1 2
+ C12 1
+Net 43 "/Microcontroller/UART_RX" "UART_RX"
+ J5 2
+ U3 30
+Net 44 "" ""
+ C13 2
+ X1 1
+ U3 8
+Net 45 "" ""
+ R11 2
+ J4 4
+Net 48 "" ""
+ J4 3
+ R10 1
+Net 49 "/Microcontroller/UART_TX" "UART_TX"
+ J5 1
+ U3 31
+Net 50 "" ""
+ R13 1
+ Q1 2
+Net 51 "" ""
+ U2 6
+ R5 1
+ U2 7
+Net 52 "" ""
+ R1 1
+ U2 2
+ U2 1
+Net 53 "" ""
+ R7 1
+ U2 9
+ U2 8
+Net 54 "" ""
+ C4 1
+ R4 1
+ U2 13
+ R3 2
+}
+#End
