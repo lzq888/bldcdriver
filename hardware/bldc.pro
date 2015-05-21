@@ -1,16 +1,6 @@
-update=Fri 01 May 2015 22:00:15 MST
+update=Sat 02 May 2015 10:13:25 MST
 version=1
-last_client=eeschema
-[cvpcb]
-version=1
-NetITyp=0
-NetIExt=.net
-PkgIExt=.pkg
-NetDir=
-LibDir=
-NetType=0
-[cvpcb/libraries]
-EquName1=devcms
+last_client=cvpcb
 [general]
 version=1
 [pcbnew]
@@ -31,7 +21,6 @@ TxtLar=120
 MSegLar=150
 LastNetListRead=bldc.net
 [pcbnew/libraries]
-LibDir=
 LibName1=sockets
 LibName2=connect
 LibName3=discret
@@ -42,6 +31,7 @@ LibName7=display
 LibName8=valves
 LibName9=led
 LibName10=dip_sockets
+LibDir=
 [eeschema]
 version=1
 LibDir=
@@ -105,3 +95,8 @@ LibName28=atmel
 LibName29=contrib
 LibName30=valves
 LibName31=bldc-cache
+[cvpcb]
+version=1
+NetIExt=net
+[cvpcb/libraries]
+EquName1=devcms
