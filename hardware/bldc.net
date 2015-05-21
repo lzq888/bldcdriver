@@ -1,4 +1,4 @@
-# EESchema Netlist Version 1.1 created  Wed 20 May 2015 21:37:06 MST
+# EESchema Netlist Version 1.1 created  Wed 20 May 2015 21:52:53 MST
 (
  ( /555D4F9B C2 C1 1uF
   ( 1 +BATT )
@@ -21,8 +21,8 @@
   ( 2 GND )
  )
  ( /5533F799/555D4FE1 C2 C6 1uF
-  ( 1 N-000055 )
-  ( 2 N-000057 )
+  ( 1 +BATT )
+  ( 2 GND )
  )
  ( /5533F799/555D4DC4 C2 C7 2000pF
   ( 1 /Signal_Conditioning/V_BEMF )
@@ -45,11 +45,11 @@
   ( 2 GND )
  )
  ( /5533F41F/554450A4 C2 C12 18pF
-  ( 1 N-000038 )
+  ( 1 N-000041 )
   ( 2 GND )
  )
  ( /5533F41F/555D525F C2 C13 18pF
-  ( 1 N-000026 )
+  ( 1 N-000046 )
   ( 2 GND )
  )
  ( /5533F41F/555D4F01 C2 C14 1uF
@@ -58,7 +58,7 @@
  )
  ( /5533F41F/555D4E0B C2 C15 2000pF
   ( 1 /Microcontroller/BATT_SENSE )
-  ( 2 N-000028 )
+  ( 2 N-000030 )
  )
  ( /5533EFF3/555D4FB1 C2 C16 1uF
   ( 1 +BATT )
@@ -66,7 +66,7 @@
  )
  ( /5533EFF3/555D4FC4 C2 C17 1uF
   ( 1 N-000022 )
-  ( 2 /3_Phase_Inverter/U_OUT )
+  ( 2 /Signal_Conditioning/U_OUT )
  )
  ( /5533EFF3/555D4FB5 C2 C18 1uF
   ( 1 +BATT )
@@ -74,7 +74,7 @@
  )
  ( /5533EFF3/555D4FC0 C2 C19 1uF
   ( 1 N-000018 )
-  ( 2 /Signal_Conditioning/V_OUT )
+  ( 2 /3_Phase_Inverter/V_OUT )
  )
  ( /5533EFF3/555D4FB8 C2 C20 1uF
   ( 1 +BATT )
@@ -101,25 +101,25 @@
   ( 2 GND )
  )
  ( /55340D0A $noname$ J1 U_OUT
-  ( 1 /3_Phase_Inverter/U_OUT )
+  ( 1 /Signal_Conditioning/U_OUT )
  )
  ( /55340D33 $noname$ J2 V_OUT
-  ( 1 /Signal_Conditioning/V_OUT )
+  ( 1 /3_Phase_Inverter/V_OUT )
  )
  ( /55340D36 $noname$ J3 W_OUT
   ( 1 /Signal_Conditioning/W_OUT )
  )
  ( /5533F41F/5533F784 pin_array_3x2 J4 ICSP
-  ( 1 N-000036 )
-  ( 2 N-000027 )
-  ( 3 N-000034 )
+  ( 1 N-000039 )
+  ( 2 N-000032 )
+  ( 3 N-000037 )
   ( 4 N-000044 )
   ( 5 /Microcontroller/nRESET )
   ( 6 GND )
  )
  ( /5533F41F/553C353B PIN_ARRAY_2X1 J5 JUMPER
   ( 1 +5V )
-  ( 2 N-000027 )
+  ( 2 N-000032 )
  )
  ( /5533F41F/553400A6 PIN_ARRAY_3X1 J6 SERIAL_OUT
   ( 1 /Microcontroller/UART_TX )
@@ -128,27 +128,27 @@
  )
  ( /5533F41F/5533F768 TO92-123 Q1 2N3904
   ( 1 GND )
-  ( 2 N-000029 )
-  ( 3 N-000028 )
+  ( 2 N-000031 )
+  ( 3 N-000030 )
  )
  ( /5533EFF3/55340B88 DPAK2 Q2 NTD5806N
   ( 1 N-000021 )
   ( 2 +BATT )
-  ( 3 /3_Phase_Inverter/U_OUT )
+  ( 3 /Signal_Conditioning/U_OUT )
  )
  ( /5533EFF3/553C27EE DPAK2 Q3 NTD5806N
   ( 1 N-000025 )
-  ( 2 /3_Phase_Inverter/U_OUT )
+  ( 2 /Signal_Conditioning/U_OUT )
   ( 3 /3_Phase_Inverter/CURR_SENSE )
  )
  ( /5533EFF3/553C27F1 DPAK2 Q4 NTD5806N
   ( 1 N-000019 )
   ( 2 +BATT )
-  ( 3 /Signal_Conditioning/V_OUT )
+  ( 3 /3_Phase_Inverter/V_OUT )
  )
  ( /5533EFF3/553C27F4 DPAK2 Q5 NTD5806N
   ( 1 N-000020 )
-  ( 2 /Signal_Conditioning/V_OUT )
+  ( 2 /3_Phase_Inverter/V_OUT )
   ( 3 /3_Phase_Inverter/CURR_SENSE )
  )
  ( /5533EFF3/553C27F5 DPAK2 Q6 NTD5806N
@@ -161,24 +161,24 @@
   ( 2 /Signal_Conditioning/W_OUT )
   ( 3 /3_Phase_Inverter/CURR_SENSE )
  )
- ( /5533F799/555D54C5 R3 R1 7.15k
+ ( /5533F799/555D54C5 R3 R1 11k
   ( 1 N-000054 )
   ( 2 GND )
  )
- ( /5533F799/5546592D R3 R2 255k
+ ( /5533F799/555D645C R3 R2 11k
   ( 1 N-000054 )
-  ( 2 N-000058 )
+  ( 2 N-000055 )
  )
  ( /5533F799/5533F7C7 R3 R3 169k
-  ( 1 N-000056 )
+  ( 1 N-000057 )
   ( 2 /Signal_Conditioning/U_BEMF )
  )
  ( /5533F799/555D5368 R3 R4 11k
   ( 1 GND )
   ( 2 /Signal_Conditioning/U_BEMF )
  )
- ( /5533F799/554659A9 R3 R5 7.15k
-  ( 1 N-000058 )
+ ( /5533F799/554659A9 R3 R5 11k
+  ( 1 N-000056 )
   ( 2 /Microcontroller/CURR_SENSE )
  )
  ( /5533F799/555D53D4 R3 R6 169k
@@ -198,11 +198,11 @@
   ( 2 /Signal_Conditioning/V_BEMF )
  )
  ( /5533F41F/555D532B R3 R10 11k
-  ( 1 N-000036 )
+  ( 1 N-000039 )
   ( 2 /Microcontroller/MISO )
  )
  ( /5533F41F/555D5331 R3 R11 11k
-  ( 1 N-000034 )
+  ( 1 N-000037 )
   ( 2 /Microcontroller/SCK )
  )
  ( /5533F41F/555D5326 R3 R12 11k
@@ -218,7 +218,7 @@
   ( 2 GND )
  )
  ( /5533F41F/555D545E R3 R15 1k
-  ( 1 N-000029 )
+  ( 1 N-000031 )
   ( 2 /Microcontroller/PWM )
  )
  ( /5533F41F/555D53F1 R3 R16 169k
@@ -227,7 +227,7 @@
  )
  ( /5533F41F/555D5321 R3 R17 11k
   ( 1 /Microcontroller/BATT_SENSE )
-  ( 2 N-000028 )
+  ( 2 N-000030 )
  )
  ( /5533EFF3/5533F2A2 R5 R18 0.01
   ( 1 /3_Phase_Inverter/CURR_SENSE )
@@ -236,6 +236,10 @@
  ( /5533F41F/55466251 R3 R19 1k
   ( 1 N-000051 )
   ( 2 /Microcontroller/DEBUG_LED )
+ )
+ ( /5533F799/555D6392 R3 R20 11k
+  ( 1 N-000055 )
+  ( 2 N-000056 )
  )
  ( /5533F41F/554576FD SW_PUSH_SMALL SW1 SW_PUSH
   ( 1 /Microcontroller/nRESET )
@@ -247,35 +251,35 @@
   ( VO +5V )
  )
  ( /5533F799/554597DA DIP-14__300 U2 LM2902N
-  ( 1 N-000056 )
-  ( 2 N-000056 )
-  ( 3 /3_Phase_Inverter/U_OUT )
-  ( 4 N-000055 )
+  ( 1 N-000057 )
+  ( 2 N-000057 )
+  ( 3 /Signal_Conditioning/U_OUT )
+  ( 4 +BATT )
   ( 5 /Signal_Conditioning/W_OUT )
   ( 6 N-000053 )
   ( 7 N-000053 )
   ( 8 N-000052 )
   ( 9 N-000052 )
-  ( 10 /Signal_Conditioning/V_OUT )
-  ( 11 N-000057 )
+  ( 10 /3_Phase_Inverter/V_OUT )
+  ( 11 GND )
   ( 12 /3_Phase_Inverter/CURR_SENSE )
   ( 13 N-000054 )
-  ( 14 N-000058 )
+  ( 14 N-000056 )
  )
  ( /5533F41F/555D56CC DIP-28__300 U3 ATMEGA328-P
   ( 1 /Microcontroller/nRESET )
   ( 2 /Microcontroller/UART_RX )
   ( 3 /Microcontroller/UART_TX )
   ( 4 /Microcontroller/U_HI_EN )
-  ( 5 /Microcontroller/U_LO )
+  ( 5 /3_Phase_Inverter/U_LO )
   ( 6 /Microcontroller/V_HI_EN )
   ( 7 +5V )
   ( 8 GND )
-  ( 9 N-000038 )
-  ( 10 N-000026 )
-  ( 11 /Microcontroller/V_LO )
+  ( 9 N-000041 )
+  ( 10 N-000046 )
+  ( 11 /3_Phase_Inverter/V_LO )
   ( 12 /Microcontroller/W_HI_EN )
-  ( 13 /Microcontroller/W_LO )
+  ( 13 /3_Phase_Inverter/W_LO )
   ( 14 ? )
   ( 15 /Microcontroller/PWM )
   ( 16 /Microcontroller/DEBUG_LED )
@@ -295,12 +299,12 @@
  ( /5533F41F/554593C7 SO14E U4 74LV08
   ( 1 /Microcontroller/PWM )
   ( 2 /Microcontroller/U_HI_EN )
-  ( 3 /3_Phase_Inverter/U_HI )
+  ( 3 /Microcontroller/U_HI )
   ( 4 /Microcontroller/PWM )
   ( 5 /Microcontroller/V_HI_EN )
   ( 6 /Microcontroller/V_HI )
   ( 7 GND )
-  ( 8 /Microcontroller/W_HI )
+  ( 8 /3_Phase_Inverter/W_HI )
   ( 9 /Microcontroller/PWM )
   ( 10 /Microcontroller/W_HI_EN )
   ( 11 ? )
@@ -310,28 +314,28 @@
  )
  ( /5533EFF3/5533F2AE SO8E U5 LM5109
   ( 1 +BATT )
-  ( 2 /3_Phase_Inverter/U_HI )
-  ( 3 /Microcontroller/U_LO )
+  ( 2 /Microcontroller/U_HI )
+  ( 3 /3_Phase_Inverter/U_LO )
   ( 4 GND )
   ( 5 N-000025 )
-  ( 6 /3_Phase_Inverter/U_OUT )
+  ( 6 /Signal_Conditioning/U_OUT )
   ( 7 N-000021 )
   ( 8 N-000022 )
  )
  ( /5533EFF3/553C0FFD SO8E U6 LM5109
   ( 1 +BATT )
   ( 2 /Microcontroller/V_HI )
-  ( 3 /Microcontroller/V_LO )
+  ( 3 /3_Phase_Inverter/V_LO )
   ( 4 GND )
   ( 5 N-000020 )
-  ( 6 /Signal_Conditioning/V_OUT )
+  ( 6 /3_Phase_Inverter/V_OUT )
   ( 7 N-000019 )
   ( 8 N-000018 )
  )
  ( /5533EFF3/553C1004 SO8E U7 LM5109
   ( 1 +BATT )
-  ( 2 /Microcontroller/W_HI )
-  ( 3 /Microcontroller/W_LO )
+  ( 2 /3_Phase_Inverter/W_HI )
+  ( 3 /3_Phase_Inverter/W_LO )
   ( 4 GND )
   ( 5 N-000017 )
   ( 6 /Signal_Conditioning/W_OUT )
@@ -339,8 +343,8 @@
   ( 8 N-000024 )
  )
  ( /5533F41F/55444EB1 HC-49V X1 20MHz
-  ( 1 N-000026 )
-  ( 2 N-000038 )
+  ( 1 N-000046 )
+  ( 2 N-000041 )
  )
 )
 *
@@ -604,6 +608,12 @@ $component R18
  R?-*
 $endlist
 $component R19
+ R?
+ SM0603
+ SM0805
+ R?-*
+$endlist
+$component R20
  R?
  SM0603
  SM0805
