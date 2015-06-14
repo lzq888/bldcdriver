@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Wed 20 May 2015 21:52:57 MST
+EESchema Schematic File Version 2  date Sun 14 Jun 2015 10:56:58 MST
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -37,7 +37,7 @@ $Descr User 11000 8500
 encoding utf-8
 Sheet 2 4
 Title "BEMF and Current Sense Signal Conditioning"
-Date "21 may 2015"
+Date "14 jun 2015"
 Rev ""
 Comp ""
 Comment1 ""
