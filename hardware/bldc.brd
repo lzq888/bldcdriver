@@ -1,4 +1,4 @@
-PCBNEW-BOARD Version 1 date Sun 14 Jun 2015 12:26:49 MST
+PCBNEW-BOARD Version 1 date Sun 14 Jun 2015 12:43:08 MST
 
 # Created by Pcbnew(2011-05-25)-stable
 
@@ -57,7 +57,7 @@ TextModSize 600 600
 TextModWidth 120
 PadSize 600 600
 PadDrill 320
-Pad2MaskClearance 1
+Pad2MaskClearance 100
 AuxiliaryAxisOrg 0 0
 PcbPlotParams (pcbplotparams (layerselection 284196865) (usegerberextensions true) (excludeedgelayer false) (linewidth 60) (plotframeref false) (viasonmask false) (mode 1) (useauxorigin false) (hpglpennumber 1) (hpglpenspeed 20) (hpglpendiameter 15) (hpglpenoverlay 0) (pscolor true) (psnegative false) (psa4output false) (plotreference true) (plotvalue true) (plotothertext true) (plotinvisibletext false) (padsonsilk true) (subtractmaskfromsilk false) (outputformat 1) (mirror false) (drillshape 1) (scaleselection 1) (outputdirectory gerbers/))
 $EndSETUP
@@ -348,7 +348,7 @@ Name "Power"
 Desc ""
 Clearance 150
 TrackWidth 1000
-ViaDia 350
+ViaDia 1000
 ViaDrill 250
 uViaDia 200
 uViaDrill 50
@@ -3731,17 +3731,17 @@ Po 0 58400 23000 58400 28900 1000 -1
 De 0 0 3 0 0
 Po 0 58400 28900 58400 29000 1000 -1
 De 15 0 3 0 0
-Po 3 58400 28900 58400 28900 350 -1
+Po 3 58400 28900 58400 28900 1000 -1
 De 15 1 3 0 0
 Po 0 58400 15500 58400 16900 1000 -1
 De 15 0 3 0 400000
 Po 0 58400 23000 58400 21500 1000 -1
 De 15 0 3 0 800000
-Po 3 58400 23000 58400 23000 350 -1
+Po 3 58400 23000 58400 23000 1000 -1
 De 15 1 3 0 0
 Po 0 58400 16900 58400 23000 1000 -1
 De 0 0 3 0 0
-Po 3 58400 16900 58400 16900 350 -1
+Po 3 58400 16900 58400 16900 1000 -1
 De 15 1 3 0 0
 Po 0 54500 31000 56400 31000 1000 -1
 De 15 0 3 0 400000
