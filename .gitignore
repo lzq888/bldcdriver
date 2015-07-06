@@ -32,3 +32,9 @@
 
 # KiCAD files
 *.bak
+
+# Eclipse metadata
+.metadata/
+
+# Project specific
+software/bldcdriver/build/
