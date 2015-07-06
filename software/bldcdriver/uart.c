@@ -22,50 +22,75 @@
  * SOFTWARE.
  */
 #include <avr/io.h>
+#include <avr/interrupt.h>
 #include "uart.h"
 #include "bldcdriver.h"
 
-// This header contains helper macros for calculating the baud rate
-#include <util/setbaud.h>
+#define RX_BUFFER_SIZE 10
+static char rx_buffer[RX_BUFFER_SIZE];
+static uint8_t rx_buffer_head;
+static bool is_transmitting;
+
 
 void uart_init(void)
 {
-	// 9600 baud, assuming 20MHz clock
-	UBRR0H = UBRRH_VALUE;
-	UBRR0L = UBRRL_VALUE;
+	// Uses the baudrate set in bldcdriver.h
+	UBRR0H = UART_BAUD_HIGH;
+	UBRR0L = UART_BAUD_LOW;
 
-	#if USE_2X != 0
-	UCSR0A = (1<<U2X0);
-	#else
 	UCSR0A = 0;
-	#endif
-	UCSR0B = (1<<RXEN0)|(1<<TXEN0);
+	UCSR0B = (1<<RXEN0) | (1<<TXEN0) | (1<<RXCIE0) | (1<<TXCIE0);
 	UCSR0C = (1<<UCSZ01)|(1<<UCSZ00);
 
-	DDRD |= (1<<DDD0);
+	DDRD |= (1<<DDD1);
+
+	rx_buffer_head = 0;
+	is_transmitting = false;
 }
 
 bool uart_putChar(char c)
 {
+	if (is_transmitting)
+	{
+		return false;
+	}
+
 	UDR0 = c;
+	is_transmitting = true;
 	return true;
 }
 
 bool uart_getChar(char *c)
 {
-	*c = UDR0;
-	return true;
+	if (rx_buffer_head == 0)
+	{
+		return false;
+	}
+	else
+	{
+		*c = rx_buffer[--rx_buffer_head];
+		return true;
+	}
 }
 
 bool uart_isTXComplete(void)
 {
-	if (UCSR0A & (1<<TXC0))
+	return !is_transmitting;
+}
+
+ISR(USART_RX_vect)
+{
+	if (rx_buffer_head < RX_BUFFER_SIZE)
 	{
-		UCSR0A &= ~(1<<TXC0);
-		return true;
+		rx_buffer[rx_buffer_head++] = UDR0;
 	}
 	else
 	{
-		return false;
+		(void)UDR0; // read the data to clear the interrupt flag
 	}
+}
+
+ISR(USART_TX_vect)
+{
+	is_transmitting = false;
 }

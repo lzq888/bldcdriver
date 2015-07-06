@@ -28,6 +28,16 @@
 #define F_CPU 20000000
 
 // Defines the UART baud rate
-#define BAUD 115200
+#define UART_BAUD 9600
+//#define UART_BAUD 115200
+#if (F_CPU == 20000000) && (UART_BAUD == 9600)
+#define UART_BAUD_HIGH 0
+#define UART_BAUD_LOW 129
+#elif (F_CPU == 20000000) && (UART_BAUD == 115200)
+#define UART_BAUD_HIGH 0
+#define UART_BAUD_LOW 10
+#else
+#error "No usable baudrate found"
+#endif
 
 #endif

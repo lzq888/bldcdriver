@@ -28,18 +28,22 @@
 
 int main(void)
 {
+	char c;
 	// Turn on the LED
 	DDRB = (1<<DDB2);
 	PORTB = (1<<PORTB2);
 
 	uart_init();
-	uart_putChar('a');
+
+	uart_putChar('>');
 
 	while (1)
 	{
-		if (uart_isTXComplete())
+		// simple echo
+		if (uart_getChar(&c))
 		{
-			uart_putChar('a');
+			PORTB ^= (1<<PINB2);
+			uart_putChar(c);
 		}
 	}
 	return 0;

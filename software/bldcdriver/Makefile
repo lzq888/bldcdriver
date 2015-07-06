@@ -67,7 +67,7 @@ program:
 	avrdude -p m328 -c usbtiny -e -U flash:w:$(BIN):e
 
 fuse:
-	avrdude -p m328 -c usbtiny -U hfuse:w:$(BIN):e -U lfuse:w:$(BIN):e
+	avrdude -p m328 -c usbtiny -U hfuse:w:$(BIN):e -U lfuse:w:$(BIN):e -Uefuse:w:$(BIN):e
 
 $(BUILDDIR)/%.o: %.c
 	$(CC) $(CFLAGS) $< -o $@
