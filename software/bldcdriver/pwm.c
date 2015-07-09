@@ -1,5 +1,5 @@
 /**
- * main.c - The program entry point
+ * pwm.c - Defines the functions to access the PWM output
  *
  * Copyright (c) 2015 Joseph Angelo
  *
@@ -21,34 +21,40 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-#include <stdint.h>
+
 #include <avr/io.h>
-#include "bldcdriver.h"
-#include "uart.h"
 #include "pwm.h"
 
-int main(void)
+void pwm_init()
 {
-	// Turn off the watch dog
-	MCUSR &= ~(1<<WDRF);
-	WDTCSR |= (1<<WDCE) | (1<<WDE);
-	WDTCSR = 0x00;
+	TCCR1A = (1<<COM1A1) | (1<<COM1A0);
+	//TCCR1A = (1<<COM1B1) | (1<<COM1B0);
+	TCCR1B = (1<<WGM13);
+	TCCR1C = 0;
 
-	// Turn on the LED
-	DDRB |= (1<<DDB2);
-	PORTB |= (1<<PORTB2);
+	TCNT1 = 0;
+	OCR1A = 0;
+	OCR1B = 0;
+	ICR1 = PWM_MAX;
+	TIMSK1 = 0;
 
-	uart_init();
-	uart_putChar('>');
-
-	pwm_init();
-	pwm_setDutyCycle(PWM_MAX >> 1);
-	pwm_start();
-
-	while (1)
-	{
-		;
-	}
-
-	return 0;
+	DDRB |= (1<<DDB1);
 }
+
+void pwm_start()
+{
+	TCCR1B |= (1<<CS10); // Turn on the clock
+}
+
+void pwm_stop()
+{
+	TCCR1B &= ~((1<<CS12) | (1<<CS11) | (1<<CS10)); // Turn off the clock
+}
+
+void pwm_setDutyCycle(uint16_t newDC)
+{
+	OCR1A = newDC;
+}
+
+
+

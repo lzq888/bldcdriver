@@ -1,5 +1,5 @@
 /**
- * main.c - The program entry point
+ * pwm.h - Declares the functions to access the PWM output
  *
  * Copyright (c) 2015 Joseph Angelo
  *
@@ -21,34 +21,17 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+
+#ifndef PWM_H_
+#define PWM_H_
+
 #include <stdint.h>
-#include <avr/io.h>
-#include "bldcdriver.h"
-#include "uart.h"
-#include "pwm.h"
 
-int main(void)
-{
-	// Turn off the watch dog
-	MCUSR &= ~(1<<WDRF);
-	WDTCSR |= (1<<WDCE) | (1<<WDE);
-	WDTCSR = 0x00;
+#define PWM_MAX 2000 // At 20MHz clock this gives frequency of 5kHz
 
-	// Turn on the LED
-	DDRB |= (1<<DDB2);
-	PORTB |= (1<<PORTB2);
+void pwm_init();
+void pwm_start();
+void pwm_stop();
+void pwm_setDutyCycle(uint16_t newDC);
 
-	uart_init();
-	uart_putChar('>');
-
-	pwm_init();
-	pwm_setDutyCycle(PWM_MAX >> 1);
-	pwm_start();
-
-	while (1)
-	{
-		;
-	}
-
-	return 0;
-}
+#endif /* PWM_H_ */
