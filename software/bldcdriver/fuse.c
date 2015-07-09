@@ -25,9 +25,9 @@
 
 FUSES = 
 {
-//.low = LFUSE_DEFAULT,
-.low = FUSE_CKSEL3,
-.high = HFUSE_DEFAULT,
-.extended = EFUSE_DEFAULT,
+	//.low = LFUSE_DEFAULT,
+	.low = FUSE_CKSEL3,
+	.high = HFUSE_DEFAULT,
+	.extended = EFUSE_DEFAULT,
 };
 
