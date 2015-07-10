@@ -21,7 +21,7 @@
 # SOFTWARE.
 
 
-SOURCES=main.c fuse.c uart.c pwm.c
+SOURCES=main.c fuse.c uart.c pwm.c led.c
 PROJNAME=bldcdriver
 
 CROSS_PREFIX=avr-

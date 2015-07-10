@@ -1,5 +1,5 @@
 /**
- * main.c - The program entry point
+ * led.c - Defines the functions to control the LED output
  *
  * Copyright (c) 2015 Joseph Angelo
  *
@@ -21,34 +21,27 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-#include <stdint.h>
 #include <avr/io.h>
-#include "bldcdriver.h"
-#include "uart.h"
-#include "pwm.h"
 #include "led.h"
 
-int main(void)
+void led_init(void)
 {
-	// Turn off the watch dog
-	MCUSR &= ~(1<<WDRF);
-	WDTCSR |= (1<<WDCE) | (1<<WDE);
-	WDTCSR = 0x00;
+	led_turnOff();
 
-	led_init();
-	led_turnOn();
+	DDRB |= (1<<DDB2);
+}
 
-	uart_init();
-	uart_putChar('>');
+void led_turnOn(void)
+{
+	PORTB |= (1<<PORTB2);
+}
 
-	pwm_init();
-	pwm_setDutyCycle(PWM_MAX-1);
-	pwm_start();
+void led_turnOff(void)
+{
+	PORTB &= ~(1<<PORTB2);
+}
 
-	while (1)
-	{
-		;
-	}
-
-	return 0;
+void led_toggle(void)
+{
+	PINB |= (1<<PINB2);
 }
