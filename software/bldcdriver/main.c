@@ -42,7 +42,7 @@ int main(void)
 	uart_putChar('>');
 
 	pwm_init();
-	pwm_setDutyCycle(PWM_MAX-1);
+	pwm_setDutyCycle(PWM_MAX >> 2);
 	pwm_start();
 
 	while (1)

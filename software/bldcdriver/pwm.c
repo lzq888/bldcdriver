@@ -27,8 +27,7 @@
 
 void pwm_init()
 {
-	TCCR1A = (1<<COM1A1) | (1<<COM1A0);
-	//TCCR1A = (1<<COM1B1) | (1<<COM1B0);
+	TCCR1A = (1<<COM1A1);
 	TCCR1B = (1<<WGM13);
 	TCCR1C = 0;
 
@@ -53,6 +52,12 @@ void pwm_stop()
 
 void pwm_setDutyCycle(uint16_t newDC)
 {
+	// Saturate the duty cycle to the max value
+	if (newDC > PWM_MAX)
+	{
+		newDC = PWM_MAX;
+	}
+
 	OCR1A = newDC;
 }
 
