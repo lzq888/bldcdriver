@@ -23,25 +23,26 @@
  */
 #include <avr/io.h>
 #include "led.h"
+#include "io.h"
 
 void led_init(void)
 {
 	led_turnOff();
 
-	DDRB |= (1 << DDB2);
+	io_setPinDirection(IO_PORT_B, IO_PIN_2, IO_OUTPUT);
 }
 
 void led_turnOn(void)
 {
-	PORTB |= (1 << PORTB2);
+	io_setPinValue(IO_PORT_B, IO_PIN_2, true);
 }
 
 void led_turnOff(void)
 {
-	PORTB &= ~(1 << PORTB2);
+	io_setPinValue(IO_PORT_B, IO_PIN_2, false);
 }
 
 void led_toggle(void)
 {
-	PINB |= (1 << PINB2);
+	io_togglePin(IO_PORT_B, IO_PIN_2);
 }

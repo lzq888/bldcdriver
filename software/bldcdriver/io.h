@@ -1,5 +1,5 @@
 /**
- * pwm.c - Defines the functions to access the PWM output
+ * io.h - Declares the IO related functions
  *
  * Copyright (c) 2015 Joseph Angelo
  *
@@ -22,45 +22,30 @@
  * SOFTWARE.
  */
 
-#include <avr/io.h>
-#include "pwm.h"
-#include "io.h"
+#ifndef IO_H_
+#define IO_H_
 
-void pwm_init()
-{
-	TCCR1A = (1 << COM1A1);
-	TCCR1B = (1 << WGM13);
-	TCCR1C = 0;
+#include <stdbool.h>
 
-	TCNT1 = 0;
-	OCR1A = 0;
-	OCR1B = 0;
-	ICR1 = PWM_MAX;
-	TIMSK1 = 0;
+#define IO_OUTPUT	true
+#define IO_INPUT	false
 
-	io_setPinDirection(IO_PORT_B, IO_PIN_1, IO_OUTPUT);
-}
+#define IO_PORT_B	0
+#define IO_PORT_C	1
+#define IO_PORT_D	2
 
-void pwm_start()
-{
-	TCCR1B |= (1 << CS10); // Turn on the clock
-}
+#define IO_PIN_0	(1 << 0)
+#define IO_PIN_1	(1 << 1)
+#define IO_PIN_2	(1 << 2)
+#define IO_PIN_3	(1 << 3)
+#define IO_PIN_4	(1 << 4)
+#define IO_PIN_5	(1 << 5)
+#define IO_PIN_6	(1 << 6)
+#define IO_PIN_7	(1 << 7)
 
-void pwm_stop()
-{
-	TCCR1B &= ~( (1 << CS12) | (1 << CS11) | (1 << CS10) ); // Turn off the clock
-}
+void io_setPinDirection(uint8_t port, uint8_t pin, bool output);
+bool io_getPinValue(uint8_t port, uint8_t pin);
+void io_setPinValue(uint8_t port, uint8_t pin, bool value);
+void io_togglePin(uint8_t port, uint8_t pin);
 
-void pwm_setDutyCycle(uint16_t newDC)
-{
-	// Saturate the duty cycle to the max value
-	if (newDC > PWM_MAX)
-	{
-		newDC = PWM_MAX;
-	}
-
-	OCR1A = newDC;
-}
-
-
-
+#endif /* IO_H_ */
