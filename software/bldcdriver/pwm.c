@@ -27,8 +27,8 @@
 
 void pwm_init()
 {
-	TCCR1A = (1<<COM1A1);
-	TCCR1B = (1<<WGM13);
+	TCCR1A = (1 << COM1A1);
+	TCCR1B = (1 << WGM13);
 	TCCR1C = 0;
 
 	TCNT1 = 0;
@@ -37,17 +37,17 @@ void pwm_init()
 	ICR1 = PWM_MAX;
 	TIMSK1 = 0;
 
-	DDRB |= (1<<DDB1);
+	DDRB |= (1 << DDB1);
 }
 
 void pwm_start()
 {
-	TCCR1B |= (1<<CS10); // Turn on the clock
+	TCCR1B |= (1 << CS10); // Turn on the clock
 }
 
 void pwm_stop()
 {
-	TCCR1B &= ~((1<<CS12) | (1<<CS11) | (1<<CS10)); // Turn off the clock
+	TCCR1B &= ~( (1 << CS12) | (1 << CS11) | (1 << CS10) ); // Turn off the clock
 }
 
 void pwm_setDutyCycle(uint16_t newDC)

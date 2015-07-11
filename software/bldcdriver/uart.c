@@ -39,10 +39,10 @@ void uart_init(void)
 	UBRR0L = UART_BAUD_LOW;
 
 	UCSR0A = 0;
-	UCSR0B = (1<<RXEN0) | (1<<TXEN0) | (1<<RXCIE0) | (1<<TXCIE0);
-	UCSR0C = (1<<UCSZ01)|(1<<UCSZ00);
+	UCSR0B = (1 << RXEN0) | (1 << TXEN0) | (1 << RXCIE0) | (1 << TXCIE0);
+	UCSR0C = (1 << UCSZ01) | (1 << UCSZ00);
 
-	DDRD |= (1<<DDD1);
+	DDRD |= (1 << DDD1);
 
 	rx_buffer_head = 0;
 	is_transmitting = false;

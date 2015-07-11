@@ -28,20 +28,20 @@ void led_init(void)
 {
 	led_turnOff();
 
-	DDRB |= (1<<DDB2);
+	DDRB |= (1 << DDB2);
 }
 
 void led_turnOn(void)
 {
-	PORTB |= (1<<PORTB2);
+	PORTB |= (1 << PORTB2);
 }
 
 void led_turnOff(void)
 {
-	PORTB &= ~(1<<PORTB2);
+	PORTB &= ~(1 << PORTB2);
 }
 
 void led_toggle(void)
 {
-	PINB |= (1<<PINB2);
+	PINB |= (1 << PINB2);
 }

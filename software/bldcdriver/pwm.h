@@ -29,9 +29,9 @@
 
 #define PWM_MAX 2000 // At 20MHz clock this gives frequency of 5kHz
 
-void pwm_init();
-void pwm_start();
-void pwm_stop();
+void pwm_init(void);
+void pwm_start(void);
+void pwm_stop(void);
 void pwm_setDutyCycle(uint16_t newDC);
 
 #endif /* PWM_H_ */

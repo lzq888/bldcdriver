@@ -23,6 +23,7 @@
  */
 #include <stdint.h>
 #include <avr/io.h>
+#include <avr/wdt.h>
 #include "bldcdriver.h"
 #include "uart.h"
 #include "pwm.h"
@@ -30,10 +31,8 @@
 
 int main(void)
 {
-	// Turn off the watch dog
-	MCUSR &= ~(1<<WDRF);
-	WDTCSR |= (1<<WDCE) | (1<<WDE);
-	WDTCSR = 0x00;
+	wdt_enable(WDTO_120MS);
+	wdt_reset();
 
 	led_init();
 	led_turnOn();
@@ -47,7 +46,7 @@ int main(void)
 
 	while (1)
 	{
-		;
+		wdt_reset();
 	}
 
 	return 0;
