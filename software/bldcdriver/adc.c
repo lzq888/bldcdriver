@@ -24,6 +24,7 @@
 
 #include <avr/io.h>
 #include <avr/interrupt.h>
+#include <util/atomic.h>
 #include "adc.h"
 
 #define EVENT_MASK		( (1 << ADTS2) | (1 << ADTS1) | (1 << ADTS0) )
@@ -32,19 +33,15 @@
 static bool conversionComplete;
 static uint16_t conversionData;
 
-static void adc_enableInterrupt(void);
-static void adc_disableInterrupt(void);
-
 void adc_init(void)
 {
 	ADMUX = (1 << REFS1) | (1 << REFS0);
-	ADCSRA = (1 << ADPS2) | (1 << ADPS1) | (1 << ADPS0);
+	ADCSRA = (1 << ADPS2) | (1 << ADPS1) | (1 << ADPS0) | (1 << ADIE);
 	ADCSRB = 0;
 
 	conversionComplete = false;
 	conversionData = 0;
 
-	adc_enableInterrupt();
 	ADCSRA |= (1 << ADEN); // Turns on the ADC
 }
 
@@ -88,22 +85,14 @@ uint16_t adc_getConversion(void)
 	}
 	else
 	{
-		adc_disableInterrupt();
-		uint16_t data = conversionData;
-		conversionComplete = false;
-		adc_enableInterrupt();
+		uint16_t data;
+		ATOMIC_BLOCK( ATOMIC_RESTORESTATE )
+		{
+			data = conversionData;
+			conversionComplete = false;
+		}
 		return data;
 	}
-}
-
-static void adc_enableInterrupt(void)
-{
-	ADCSRA |= (1 << ADIE);
-}
-
-static void adc_disableInterrupt(void)
-{
-	ADCSRA &= ~(1 << ADIE);
 }
 
 ISR(ADC_vect)

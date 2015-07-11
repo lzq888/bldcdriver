@@ -49,7 +49,7 @@ OBJECTS=$(SOURCES:%.c=$(BUILDDIR)/%.o)
 #	-g - Keep debug information
 #	-Wall - Enable all warnings
 #	-mmcu=attiny85 - Compile for the ATtiny85 chip
-CFLAGS=-c -g -Wall -mmcu=$(CCTARGET) -MD -O1
+CFLAGS=-c -g -Wall -mmcu=$(CCTARGET) -MD -O1 -std=c99
 #	--warn - Enable all warnings
 ASFLAGS=-g --warn -mmcu=$(CCTARGET)
 #	-Map memory.map - Output a text file containing the memory map
