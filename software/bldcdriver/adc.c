@@ -1,5 +1,5 @@
 /**
- * main.c - The program entry point
+ * adc.c - Define the ADC related functions
  *
  * Copyright (c) 2015 Joseph Angelo
  *
@@ -21,36 +21,63 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-#include <stdint.h>
+
 #include <avr/io.h>
-#include <avr/wdt.h>
-#include "bldcdriver.h"
-#include "uart.h"
-#include "pwm.h"
-#include "led.h"
 #include "adc.h"
 
-int main(void)
+#define EVENT_MASK		( (1 << ADTS2) | (1 << ADTS1) | (1 << ADTS0) )
+#define CHANNEL_MASK	( (1 << MUX3) | (1 << MUX2) | (1 << MUX1) | (1 << MUX0) )
+
+void adc_init(void)
 {
-	wdt_enable(WDTO_120MS);
-	wdt_reset();
+	ADMUX = (1 << REFS1) | (1 << REFS0);
+	ADCSRA = (1 << ADPS2) | (1 << ADPS1) | (1 << ADPS0);
+	ADCSRB = 0;
 
-	led_init();
-	led_turnOn();
+	ADCSRA |= (1 << ADEN); // Turns on the ADC
+}
 
-	uart_init();
-	uart_putChar('>');
+bool adc_isConversionDone(void)
+{
+	return ((ADCSRA & (1 << ADIF)) != 0);
+}
 
-	pwm_init();
-	pwm_setDutyCycle(PWM_MAX >> 2);
-	pwm_start();
+void adc_setChannel(uint8_t channel)
+{
+	ADMUX &= ~(CHANNEL_MASK);
+	ADMUX |= (channel & CHANNEL_MASK);
+}
 
-	adc_init();
-
-	while (1)
+void adc_setStartEvent(uint8_t event)
+{
+	if (ADC_SOFTWARE)
 	{
-		wdt_reset();
+		ADCSRA &= ~(1 << ADATE); // Disable external event triggering
 	}
+	else
+	{
+		// Configure the trigger event
+		ADCSRB &= ~(EVENT_MASK);
+		ADCSRB |= (event & EVENT_MASK);
 
-	return 0;
+		ADCSRA |= (1 << ADATE); // Enable external event triggering
+	}
+}
+
+void adc_startConversion(void)
+{
+	ADCSRA |= (1 << ADSC);
+}
+
+uint16_t adc_getConversion(void)
+{
+	if (!adc_isConversionDone())
+	{
+		return 0;
+	}
+	else
+	{
+		ADCSRA |= (1 << ADIF);
+		return ADC;
+	}
 }
