@@ -23,10 +23,17 @@
  */
 
 #include <avr/io.h>
+#include <avr/interrupt.h>
 #include "adc.h"
 
 #define EVENT_MASK		( (1 << ADTS2) | (1 << ADTS1) | (1 << ADTS0) )
 #define CHANNEL_MASK	( (1 << MUX3) | (1 << MUX2) | (1 << MUX1) | (1 << MUX0) )
+
+static bool conversionComplete;
+static uint16_t conversionData;
+
+static void adc_enableInterrupt(void);
+static void adc_disableInterrupt(void);
 
 void adc_init(void)
 {
@@ -34,12 +41,16 @@ void adc_init(void)
 	ADCSRA = (1 << ADPS2) | (1 << ADPS1) | (1 << ADPS0);
 	ADCSRB = 0;
 
+	conversionComplete = false;
+	conversionData = 0;
+
+	adc_enableInterrupt();
 	ADCSRA |= (1 << ADEN); // Turns on the ADC
 }
 
 bool adc_isConversionDone(void)
 {
-	return ((ADCSRA & (1 << ADIF)) != 0);
+	return conversionComplete;
 }
 
 void adc_setChannel(uint8_t channel)
@@ -71,13 +82,32 @@ void adc_startConversion(void)
 
 uint16_t adc_getConversion(void)
 {
-	if (!adc_isConversionDone())
+	if (!conversionComplete)
 	{
 		return 0;
 	}
 	else
 	{
-		ADCSRA |= (1 << ADIF);
-		return ADC;
+		adc_disableInterrupt();
+		uint16_t data = conversionData;
+		conversionComplete = false;
+		adc_enableInterrupt();
+		return data;
 	}
+}
+
+static void adc_enableInterrupt(void)
+{
+	ADCSRA |= (1 << ADIE);
+}
+
+static void adc_disableInterrupt(void)
+{
+	ADCSRA &= ~(1 << ADIE);
+}
+
+ISR(ADC_vect)
+{
+	conversionData = ADC;
+	conversionComplete = true;
 }
