@@ -28,7 +28,7 @@
 #include <stdint.h>
 #include <avr/eeprom.h>
 
-EEMEM extern uint8_t i2cAddr;
-EEMEM extern uint16_t lowBattThreshold;
+EEMEM extern uint8_t i2cAddr_eeprom;
+EEMEM extern uint16_t lowBattThreshold_eeprom;
 
 #endif /* EEPROMDATA_H_ */
