@@ -32,6 +32,8 @@ static char rx_buffer[RX_BUFFER_SIZE];
 static uint8_t rx_buffer_head;
 static bool is_transmitting;
 
+static void uart_enableInterrupts(void);
+static void uart_disableInterrupts(void);
 
 void uart_init(void)
 {
@@ -40,13 +42,15 @@ void uart_init(void)
 	UBRR0L = UART_BAUD_LOW;
 
 	UCSR0A = 0;
-	UCSR0B = (1 << RXEN0) | (1 << TXEN0) | (1 << RXCIE0) | (1 << TXCIE0);
+	UCSR0B = (1 << RXEN0) | (1 << TXEN0);
 	UCSR0C = (1 << UCSZ01) | (1 << UCSZ00);
 
 	io_setPinDirection(IO_PORT_D, IO_PIN_1, IO_OUTPUT);
 
 	rx_buffer_head = 0;
 	is_transmitting = false;
+
+	uart_enableInterrupts();
 }
 
 bool uart_putChar(char c)
@@ -69,7 +73,9 @@ bool uart_getChar(char *c)
 	}
 	else
 	{
+		uart_disableInterrupts();
 		*c = rx_buffer[--rx_buffer_head];
+		uart_enableInterrupts();
 		return true;
 	}
 }
@@ -77,6 +83,16 @@ bool uart_getChar(char *c)
 bool uart_isTXComplete(void)
 {
 	return !is_transmitting;
+}
+
+static void uart_enableInterrupts(void)
+{
+	UCSR0B |= ((1 << RXCIE0) | (1 << TXCIE0));
+}
+
+static void uart_disableInterrupts(void)
+{
+	UCSR0B &= ~((1 << RXCIE0) | (1 << TXCIE0));
 }
 
 ISR(USART_RX_vect)
